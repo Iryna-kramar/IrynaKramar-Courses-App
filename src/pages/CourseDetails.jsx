@@ -4,20 +4,24 @@ import ReactPlayer from "react-player";
 import dataLessons from "../dataLessons.json";
 import CourseContent from "../components/CourseContent";
 
+
+
 const CourseDetails = () => {
-  const [isShownLesson, setIsShownLesson] = useState(false);
+  const [isUnlockedLesson, setIsUnlockedLesson] = useState(<div></div>);
   const [selectedLesson, setSelectedLesson] = useState({});
-  const [bgColor, setBgColor] = useState("");
 
   const handleLessonSelect = (item) => {
     setSelectedLesson(item);
-    setIsShownLesson(true);
-    setBgColor("#A020F0");
+    setIsUnlockedLesson(true);
+    if (item.status === "unlocked") {
+      setIsUnlockedLesson(true);
+    } else {
+      setIsUnlockedLesson(false);
+    }
   };
-  console.log(selectedLesson);
 
   const course = dataLessons;
-  console.log(course);
+  console.log(selectedLesson);
 
   return (
     <Wrapper>
@@ -25,6 +29,7 @@ const CourseDetails = () => {
         <div className="content-wrapper">
           <ReactPlayer
             url={course.meta.courseVideoPreview.link}
+            type="application/x-mpegURL"
             controls
           />
         </div>
@@ -34,7 +39,7 @@ const CourseDetails = () => {
       </div>
       <div className="course-details-item">
         <div className="content-wrapper">
-          <p >Lessons</p>
+          <p>Lessons</p>
           <ul>
             {course.lessons.map((lesson, index) => (
               <li className="lessons-title" key={index} lesson={lesson}>
@@ -51,11 +56,15 @@ const CourseDetails = () => {
       </div>
       <div className="course-details-item">
         <div className="grid-item content-wrapper">
-          <ReactPlayer
-            url={selectedLesson.link}
-            type="application/x-mpegURL"
-            controls
-          />
+          {isUnlockedLesson ? (
+            <ReactPlayer
+              url={selectedLesson.link}
+              type="application/x-mpegURL"
+              controls
+            />
+          ) : (
+            <div>The Lesson is not available</div>
+          )}
         </div>
       </div>
     </Wrapper>
@@ -74,12 +83,10 @@ const Wrapper = styled.div`
     grid-template-columns: 1fr;
     grid-gap: 20px;
   }
-
   .course-details-item {
     display: flex;
     align-items: center;
   }
-
   p {
     font-weight: 600;
   }

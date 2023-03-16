@@ -13,20 +13,32 @@ const CoursesProvider = ({ children }) => {
   let baseUrl = `${host}/${version}/core/preview-courses`;
   let tokenUrl = `${host}/${version}/auth/anonymous?platform=subscriptions`;
 
-  const dataOptions = {
+  const tokenOptions = {
     method: "GET",
     headers: {
-      "Content-type": "application/json; charset=UTF-8",
+      // Host: `${host}`,
       "User-Agent": "PostmanRuntime/7.31.1",
       Accept: "*/*",
       "Accept-Encoding": "gzip, deflate, br",
       Connection: "keep-alive",
       "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers": "Content-Type",
-      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-      Authorization: `Bearer ${token}`,
     },
   };
+
+  // const dataOptions = {
+  //   method: "GET",
+  //   headers: {
+  //     "Content-type": "application/json; charset=UTF-8",
+  //     "User-Agent": "PostmanRuntime/7.31.1",
+  //     Accept: "*/*",
+  //     "Accept-Encoding": "gzip, deflate, br",
+  //     Connection: "keep-alive",
+  //     "Access-Control-Allow-Origin": "*",
+  //     "Access-Control-Allow-Headers": "Content-Type",
+  //     "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+  //     Authorization: `Bearer ${tokent}`,
+  //   },
+  // };
 
   const fetchData = async (url, options) => {
     const response = await fetch(url, options);
@@ -35,20 +47,18 @@ const CoursesProvider = ({ children }) => {
   };
 
   const fetchTokensData = async () => {
-    const tokenData = await fetchData(`${tokenUrl}`, { method: "GET" });
+    const tokenData = await fetchData(`${tokenUrl}`, tokenOptions);
     setToken(tokenData);
-
   };
 
   useEffect(() => {
-    //     fetchTokensData();
+    fetchTokensData();
     // const fetchCoursesData = async () => {
-    //   const allData = await Promise.allSettled([ fetchData(`${baseUrl}`, dataOptions)]);
+    //   const allData = await fetchData(`${baseUrl}`, dataOptions);
     //   setData(allData);
     //   setCourses(allData.courses);
     // };
     // fetchCoursesData();
-
   }, []);
 
   return (
