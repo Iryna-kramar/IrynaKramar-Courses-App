@@ -1,36 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
-import CheckIcon from "@mui/icons-material/Check";
-
+import { MutedPlayer } from "react-muted-video-player";
+import CourseContent from "../components/CourseContent";
 
 const CourseCard = ({ course }) => {
+  const [isShown, setIsShown] = useState(true);
+
   return (
     <Wrapper>
       <Link className="card" to={`/${course.id}`}>
         <div>
-          <img
-            src={course.previewImageLink + "/cover.webp"}
-            alt={course.title}
-          ></img>
-          <div className="card-content">
-            <h5 className="card-course-title">{course.title}</h5>
-            <div className="card-description">{course.description}</div>
-            <div>
-              <p className="card-skills">Skills</p>
-              <ul>
-                {course.meta.skills.map((skill, index) => (
-                  <li key={index} skill={skill}>
-                    <CheckIcon fontSize="small" /> {skill}
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div
+            onMouseEnter={() => setIsShown(false)}
+            onMouseLeave={() => setIsShown(true)}
+          >
+            {isShown ? (
+              <img
+                src={course.previewImageLink + "/cover.webp"}
+                alt={course.title}
+              ></img>
+            ) : (
+              <MutedPlayer
+                className="card-video"
+                src={course.meta.courseVideoPreview.link}
+                type="application/x-mpegURL"
+                autoPlay={true}
+                muted={true}
+                playsInline={true}
+              />
+            )}
           </div>
+          <CourseContent course={course} />
         </div>
-        <div className="card-content">
+        <div className="content-wrapper">
           <div className="card-lessons">{course.lessonsCount} lessons</div>
           <div className="card-break"></div>
           <div className="card-lesson-rating">
@@ -67,7 +72,8 @@ const Wrapper = styled.div`
     justify-content: space-between;
     height: 100%;
   }
-  img {
+  img,
+  .card-video {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -76,23 +82,6 @@ const Wrapper = styled.div`
     width: 100%;
     height: 150px;
   }
-  .card-content {
-    padding: 25px 24px 32px;
-    flex-direction: column;
-    display: flex;
-  }
-  h5 {
-    text-align: left;
-    flex: 2 0 auto;
-    min-height: 42px;
-    margin: 0;
-  }
-  .card-description,
-  .card-skills {
-    text-align: left;
-    margin-top: 1rem;
-  }
-  .card-skills,
   .card-lessons {
     font-weight: 600;
   }

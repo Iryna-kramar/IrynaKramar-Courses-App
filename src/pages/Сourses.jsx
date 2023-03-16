@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import Loader from "../components/Loader";
 import CoursesCard from "../components/CourseCard";
 // import { CoursesContext } from "../context/context";
 import data from "../data.json";
-import styled from "styled-components";
 import Pagination from "@mui/material/Pagination";
 
 const Courses = () => {

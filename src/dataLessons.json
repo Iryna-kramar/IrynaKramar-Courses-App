@@ -1,0 +1,84 @@
+{
+  "id": "d1346a13-0872-4c89-b23b-ab163da0db1a",
+  "title": "Staying Focused in a Chaotic World",
+  "tags": ["productivity"],
+  "launchDate": "2022-12-12T13:10:39.000Z",
+  "status": "launched",
+  "description": "After this course, you’ll be able to aim your focus as easily as a laser pointer.",
+  "duration": 1468,
+  "previewImageLink": "https://wisey.app/assets/images/web/course-covers/staying-focused-in-a-chaotic-world",
+  "rating": 4.8,
+  "meta": {
+    "slug": "staying-focused-in-a-chaotic-world",
+    "skills": [
+      "Improving attention span ",
+      "Staying concentrated",
+      "Mindful multitasking ",
+      "Directing selective attention ",
+      "Switching activities"
+    ],
+    "courseVideoPreview": {
+      "link": "https://wisey.app/videos/staying-focused-in-a-chaotic-world/preview/AppleHLS1/preview.m3u8",
+      "duration": 32,
+      "previewImageLink": "https://wisey.app/assets/images/web/course-covers/staying-focused-in-a-chaotic-world/preview"
+    }
+  },
+  "lessons": [
+    {
+      "id": "4fde5bf2-dbf3-4bc5-99b2-fab11ab21a53",
+      "title": "Why you need to let your mind wander",
+      "duration": 276,
+      "order": 5,
+      "type": "video",
+      "status": "unlocked",
+      "link": "https://wisey.app/videos/staying-focused-in-a-chaotic-world/lesson-5/AppleHLS1/lesson-5.m3u8",
+      "previewImageLink": "https://wisey.app/assets/images/web/lessons-covers/staying-focused-in-a-chaotic-world/lesson-5",
+      "meta": null
+    },
+    {
+      "id": "215e5bf6-bb52-4d5d-b971-7e5ef5bbb80b",
+      "title": "Why can’t I focus?",
+      "duration": 263,
+      "order": 1,
+      "type": "video",
+      "status": "unlocked",
+      "link": "https://wisey.app/videos/staying-focused-in-a-chaotic-world/lesson-1/AppleHLS1/lesson-1.m3u8",
+      "previewImageLink": "https://wisey.app/assets/images/web/lessons-covers/staying-focused-in-a-chaotic-world/lesson-1",
+      "meta": null
+    },
+    {
+      "id": "198b03cb-58db-4bd1-8521-af2eba2eefd6",
+      "title": "How to multitask like a pro",
+      "duration": 273,
+      "order": 2,
+      "type": "video",
+      "status": "unlocked",
+      "link": "https://wisey.app/videos/staying-focused-in-a-chaotic-world/lesson-2/AppleHLS1/lesson-2.m3u8",
+      "previewImageLink": "https://wisey.app/assets/images/web/lessons-covers/staying-focused-in-a-chaotic-world/lesson-2",
+      "meta": null
+    },
+    {
+      "id": "c5db482c-9568-469a-9def-37f883ed3f5b",
+      "title": "Focus on what’s actually important",
+      "duration": 334,
+      "order": 3,
+      "type": "video",
+      "status": "unlocked",
+      "link": "https://wisey.app/videos/staying-focused-in-a-chaotic-world/lesson-3/AppleHLS1/lesson-3.m3u8",
+      "previewImageLink": "https://wisey.app/assets/images/web/lessons-covers/staying-focused-in-a-chaotic-world/lesson-3",
+      "meta": null
+    },
+    {
+      "id": "94f17e1b-068a-462d-9904-dc0435815c96",
+      "title": "Keep focus for as long as you need to",
+      "duration": 322,
+      "order": 4,
+      "type": "video",
+      "status": "unlocked",
+      "link": "https://wisey.app/videos/staying-focused-in-a-chaotic-world/lesson-4/AppleHLS1/lesson-4.m3u8",
+      "previewImageLink": "https://wisey.app/assets/images/web/lessons-covers/staying-focused-in-a-chaotic-world/lesson-4",
+      "meta": null
+    }
+  ],
+  "containsLockedLessons": false
+}
