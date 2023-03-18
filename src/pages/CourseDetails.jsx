@@ -9,6 +9,7 @@ import CourseContent from "../components/CourseContent";
 const CourseDetails = () => {
   const { course, fetchCourseData, fetchTokensData } =
     useContext(CoursesContext);
+    
   const [isUnlockedLesson, setIsUnlockedLesson] = useState(<div></div>);
   const [selectedLesson, setSelectedLesson] = useState({});
 

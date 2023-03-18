@@ -31,6 +31,7 @@ const CoursesProvider = ({ children }) => {
     console.log(token);
   };
 
+  // Getting Courses Data
   const fetchCoursesData = async () => {
     await fetch(baseUrl, {
       method: "GET",
@@ -47,14 +48,12 @@ const CoursesProvider = ({ children }) => {
           setCourses(data.courses);
         } else {
           setError(data.message);
-          // proccess server errors
         }
       })
-      .catch((error) => {
-        // proccess network errors
-      });
+      .catch((error) => {});
   };
 
+  // Getting Course Data by ID
   const fetchCourseData = async (courseId) => {
     await fetchData(`${baseUrl}/${courseId}`, {
       method: "GET",
@@ -70,12 +69,9 @@ const CoursesProvider = ({ children }) => {
           setCourse(data);
         } else {
           setError(data.message);
-          // proccess server errors
         }
       })
-      .catch((error) => {
-        // proccess network errors
-      });
+      .catch((error) => {});
   };
 
   return (

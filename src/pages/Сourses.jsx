@@ -6,10 +6,9 @@ import { CoursesContext } from "../context/context";
 import Pagination from "@mui/material/Pagination";
 
 const Courses = () => {
-  const { courses, fetchCoursesData, fetchTokensData } =
+  const { courses, fetchCoursesData, fetchTokensData,  } =
     useContext(CoursesContext);
   const [currentPage, setCurrentPage] = useState(1);
-
 
   useEffect(() => {
     fetchTokensData();
