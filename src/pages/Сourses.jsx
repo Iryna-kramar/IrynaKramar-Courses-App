@@ -1,23 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import styled from "styled-components";
 import Loader from "../components/Loader";
 import CoursesCard from "../components/CourseCard";
-// import { CoursesContext } from "../context/context";
-import data from "../data.json";
+import { CoursesContext } from "../context/context";
 import Pagination from "@mui/material/Pagination";
 
 const Courses = () => {
-  //  const { courses, fetchCoursesData } =
-  //   useContext(CoursesContext);
-
-  //  useEffect(() => {
-  //   fetchCoursesData();
-  // }, [currentPage]);
-
-  const courses = data.courses;
-  console.log(courses);
-
+  const { courses, fetchCoursesData, fetchTokensData } =
+    useContext(CoursesContext);
   const [currentPage, setCurrentPage] = useState(1);
+
+
+  useEffect(() => {
+    fetchTokensData();
+  }, []);
+
+  useEffect(() => {
+    fetchCoursesData();
+  }, [currentPage]);
 
   const coursesPerPage = 10;
   const indexOfLastCourse = currentPage * coursesPerPage;

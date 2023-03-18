@@ -13,7 +13,7 @@ const App = () => {
           <Navbar />
           <Routes>
             <Route path="/" element={<Courses />} />
-            <Route path="/:courseId" element={<CourseDetails />} />
+            <Route path="/:courseId" element={<CourseDetails  />} />
           </Routes>
         </BrowserRouter>
       </CoursesProvider>

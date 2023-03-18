@@ -1,14 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import styled from "styled-components";
+import { CoursesContext } from "../context/context";
+import { useParams } from "react-router-dom";
 import ReactPlayer from "react-player";
-import dataLessons from "../dataLessons.json";
 import CourseContent from "../components/CourseContent";
 
 
-
 const CourseDetails = () => {
+  const { course, fetchCourseData, fetchTokensData } =
+    useContext(CoursesContext);
   const [isUnlockedLesson, setIsUnlockedLesson] = useState(<div></div>);
   const [selectedLesson, setSelectedLesson] = useState({});
+
+  const { courseId } = useParams();
+
+    useEffect(() => {
+      fetchTokensData();
+    }, []);
+
+    useEffect(() => {
+      fetchCourseData(courseId);
+    }, [courseId]);
 
   const handleLessonSelect = (item) => {
     setSelectedLesson(item);
@@ -20,8 +32,39 @@ const CourseDetails = () => {
     }
   };
 
-  const course = dataLessons;
-  console.log(selectedLesson);
+  // const handleKeyboardEvent = (e) => {
+  //   if (e.defaultPrevented) {
+  //     return; // Do nothing if the event was already processed
+  //   }
+  //   switch (e.key) {
+  //     case "Left": // IE/Edge specific value
+  //     case "ArrowLeft":
+  //       // Do something for "left arrow" key press.
+  //       alert("Left key was pressed");
+  //       break;
+  //     case "Right": // IE/Edge specific value
+  //     case "ArrowRight":
+  //       // Do something for "right arrow" key press.
+  //            alert("Right key was pressed");
+  //       break;
+  //     default:
+  //       return; // Quit when this doesn't handle the key event.
+  //   }
+
+  //   // Cancel the default action to avoid it being handled twice
+  //   e.preventDefault();
+  // }
+
+  //  function increase() {
+  //    // Increasing the playing speed by 1
+  //    video.playbackRate += 1;
+  //  }
+
+  //  function decrease() {
+  //    // Decreasing the playing speed by 1
+  //    if (video.playbackRate > 1) video.playbackRate -= 1;
+  //  }
+
 
   return (
     <Wrapper>
