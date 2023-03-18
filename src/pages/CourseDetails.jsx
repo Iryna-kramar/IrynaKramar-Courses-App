@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 import { CoursesContext } from "../context/context";
 import { useParams } from "react-router-dom";
@@ -7,11 +7,14 @@ import CourseContent from "../components/CourseContent";
 
 
 const CourseDetails = () => {
-  const { course, fetchCourseData, fetchTokensData } =
-    useContext(CoursesContext);
-    
-  const [isUnlockedLesson, setIsUnlockedLesson] = useState(<div></div>);
-  const [selectedLesson, setSelectedLesson] = useState({});
+  const {
+    course,
+    fetchCourseData,
+    fetchTokensData,
+    selectedLesson,
+    isUnlockedLesson,
+    handleLessonSelect,
+  } = useContext(CoursesContext);
 
   const { courseId } = useParams();
 
@@ -23,15 +26,6 @@ const CourseDetails = () => {
       fetchCourseData(courseId);
     }, [courseId]);
 
-  const handleLessonSelect = (item) => {
-    setSelectedLesson(item);
-    setIsUnlockedLesson(true);
-    if (item.status === "unlocked") {
-      setIsUnlockedLesson(true);
-    } else {
-      setIsUnlockedLesson(false);
-    }
-  };
 
   // const handleKeyboardEvent = (e) => {
   //   if (e.defaultPrevented) {

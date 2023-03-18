@@ -9,6 +9,9 @@ const CoursesProvider = ({ children }) => {
   const [course, setCourse] = useState({});
   const [token, setToken] = useState("");
   const [error, setError] = useState(false);
+  const [selectedLesson, setSelectedLesson] = useState({});
+  const [isUnlockedLesson, setIsUnlockedLesson] = useState(<div></div>);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const host = "http://api.wisey.app";
   const version = "api/v1";
@@ -74,6 +77,28 @@ const CoursesProvider = ({ children }) => {
       .catch((error) => {});
   };
 
+  // Lesson selection
+  const handleLessonSelect = (item) => {
+    setSelectedLesson(item);
+    setIsUnlockedLesson(true);
+    if (item.status === "unlocked") {
+      setIsUnlockedLesson(true);
+    } else {
+      setIsUnlockedLesson(false);
+    }
+  };
+
+  //Pagination Courses pages
+  const coursesPerPage = 10;
+  const indexOfLastCourse = currentPage * coursesPerPage;
+  const indexOfFirstCourse = indexOfLastCourse - coursesPerPage;
+  const currentCourses = courses.slice(indexOfFirstCourse, indexOfLastCourse);
+
+  const paginate = (e, value) => {
+    setCurrentPage(value);
+    window.scrollTo(0, 0);
+  };
+
   return (
     <CoursesContext.Provider
       value={{
@@ -82,9 +107,16 @@ const CoursesProvider = ({ children }) => {
         course,
         token,
         error,
+        selectedLesson,
+        isUnlockedLesson,
+        currentPage,
+        currentCourses,
+        coursesPerPage,
+        paginate,
         fetchTokensData,
         fetchCoursesData,
         fetchCourseData,
+        handleLessonSelect,
       }}
     >
       {children}

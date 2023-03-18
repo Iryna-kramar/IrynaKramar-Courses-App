@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 import Loader from "../components/Loader";
 import CoursesCard from "../components/CourseCard";
@@ -6,9 +6,15 @@ import { CoursesContext } from "../context/context";
 import Pagination from "@mui/material/Pagination";
 
 const Courses = () => {
-  const { courses, fetchCoursesData, fetchTokensData,  } =
-    useContext(CoursesContext);
-  const [currentPage, setCurrentPage] = useState(1);
+  const {
+    courses,
+    fetchCoursesData,
+    fetchTokensData,
+    currentPage,
+    currentCourses,
+    coursesPerPage,
+    paginate,
+  } = useContext(CoursesContext);
 
   useEffect(() => {
     fetchTokensData();
@@ -17,16 +23,6 @@ const Courses = () => {
   useEffect(() => {
     fetchCoursesData();
   }, [currentPage]);
-
-  const coursesPerPage = 10;
-  const indexOfLastCourse = currentPage * coursesPerPage;
-  const indexOfFirstCourse = indexOfLastCourse - coursesPerPage;
-  const currentCourses = courses.slice(indexOfFirstCourse, indexOfLastCourse);
-
-  const paginate = (e, value) => {
-    setCurrentPage(value);
-    window.scrollTo(0, 0);
-  };
 
   return (
     <Wrapper>
