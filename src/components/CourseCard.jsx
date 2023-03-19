@@ -6,6 +6,7 @@ import Stack from "@mui/material/Stack";
 import { MutedPlayer } from "react-muted-video-player";
 import CourseContent from "../components/CourseContent";
 
+
 const CourseCard = ({ course }) => {
   const [isShown, setIsShown] = useState(true);
 

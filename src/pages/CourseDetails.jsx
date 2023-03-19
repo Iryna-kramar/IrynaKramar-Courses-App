@@ -5,61 +5,21 @@ import { useParams } from "react-router-dom";
 import ReactHlsPlayer from "react-player";
 import CourseContent from "../components/CourseContent";
 
-
 const CourseDetails = () => {
   const {
     course,
     fetchCourseData,
-    fetchTokensData,
     selectedLesson,
     isUnlockedLesson,
     handleLessonSelect,
   } = useContext(CoursesContext);
 
   const { courseId } = useParams();
+  console.log(courseId);
 
-    useEffect(() => {
-      fetchTokensData();
-    }, []);
-
-    useEffect(() => {
-      fetchCourseData(courseId);
-    }, [courseId]);
-
-
-  // const handleKeyboardEvent = (e) => {
-  //   if (e.defaultPrevented) {
-  //     return; // Do nothing if the event was already processed
-  //   }
-  //   switch (e.key) {
-  //     case "Left": // IE/Edge specific value
-  //     case "ArrowLeft":
-  //       // Do something for "left arrow" key press.
-  //       alert("Left key was pressed");
-  //       break;
-  //     case "Right": // IE/Edge specific value
-  //     case "ArrowRight":
-  //       // Do something for "right arrow" key press.
-  //            alert("Right key was pressed");
-  //       break;
-  //     default:
-  //       return; // Quit when this doesn't handle the key event.
-  //   }
-
-  //   // Cancel the default action to avoid it being handled twice
-  //   e.preventDefault();
-  // }
-
-  //  function increase() {
-  //    // Increasing the playing speed by 1
-  //    video.playbackRate += 1;
-  //  }
-
-  //  function decrease() {
-  //    // Decreasing the playing speed by 1
-  //    if (video.playbackRate > 1) video.playbackRate -= 1;
-  //  }
-
+  useEffect(() => {
+    fetchCourseData(courseId);
+  }, [courseId]);
 
   return (
     <Wrapper>
@@ -78,6 +38,7 @@ const CourseDetails = () => {
       <div className="course-details-item">
         <div className="content-wrapper">
           <p>Lessons</p>
+
           <ul>
             {course.lessons.map((lesson, index) => (
               <li className="lessons-title" key={index} lesson={lesson}>

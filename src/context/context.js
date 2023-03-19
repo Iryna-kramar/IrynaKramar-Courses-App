@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const CoursesContext = React.createContext();
 
@@ -6,73 +7,59 @@ const CoursesProvider = ({ children }) => {
   const [allData, setAllData] = useState({});
   const [courses, setCourses] = useState([]);
   const [course, setCourse] = useState({});
-  const [token, setToken] = useState("");
   const [error, setError] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
   const [selectedLesson, setSelectedLesson] = useState({});
   const [isUnlockedLesson, setIsUnlockedLesson] = useState(<div></div>);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const host = "http://api.wisey.app";
-  const version = "api/v1";
-  const baseUrl = `${host}/${version}/core/preview-courses`;
-  const tokenUrl = `${host}/${version}/auth/anonymous?platform=subscriptions`;
+  axios.defaults.baseURL = "https://api.wisey.app/api/v1";
 
-  const fetchData = async (url, options) => {
-    const response = await fetch(url, options);
-    const data = await response.json();
-    return data;
+  const setToken = (token) => {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   };
 
   // Getting token
   const fetchTokensData = async () => {
-    const tokenData = await fetchData(tokenUrl, {
-      method: "GET",
-    });
-    setToken(tokenData.token);
-    console.log(token);
+    try {
+      const response = await axios.get(
+        "/auth/anonymous?platform=subscriptions"
+      );
+      setToken(response.data.token);
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   // Getting Courses Data
   const fetchCoursesData = async () => {
-    await fetch(baseUrl, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data, "data");
-        if (data.success) {
-          fetchTokensData();
-          setAllData(data);
-          setCourses(data.courses);
-        } else {
-          setError(data.message);
-        }
-      })
-      .catch((error) => {});
+    await fetchTokensData();
+    setIsLoading(true);
+    const response = await axios
+      .get("/core/preview-courses")
+      .catch((err) => console.log(err));
+    console.log(response);
+    if (response) {
+      setAllData(response.data);
+      setCourses(response.data.courses);
+    } else {
+      setError(response.data.message);
+    }
   };
 
   // Getting Course Data by ID
   const fetchCourseData = async (courseId) => {
-    await fetchData(`${baseUrl}/${courseId}`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data, "data");
-        if (data.success) {
-          fetchTokensData();
-          setCourse(data);
-        } else {
-          setError(data.message);
-        }
-      })
-      .catch((error) => {});
+    await fetchTokensData();
+    setIsLoading(true);
+    const response = await axios
+      .get(`/core/preview-courses/${courseId}`)
+      .catch((err) => console.log(err));
+    console.log(response);
+    if (response) {
+      setCourse(response.data);
+    } else {
+      setError(response.data.message);
+    }
   };
 
   // Lesson selection
@@ -103,8 +90,8 @@ const CoursesProvider = ({ children }) => {
         allData,
         courses,
         course,
-        token,
         error,
+        isLoading,
         selectedLesson,
         isUnlockedLesson,
         currentPage,

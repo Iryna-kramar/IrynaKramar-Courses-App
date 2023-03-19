@@ -9,17 +9,11 @@ const Courses = () => {
   const {
     courses,
     fetchCoursesData,
-    fetchTokensData,
     currentPage,
     currentCourses,
     coursesPerPage,
     paginate,
   } = useContext(CoursesContext);
-
-  useEffect(() => {
-    fetchTokensData();
-
-  }, []);
 
   useEffect(() => {
     fetchCoursesData();
