@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 import { CoursesContext } from "../context/context";
 import { useParams } from "react-router-dom";
-import ReactPlayer from "react-player";
+import ReactHlsPlayer from "react-player";
 import CourseContent from "../components/CourseContent";
 
 
@@ -65,7 +65,7 @@ const CourseDetails = () => {
     <Wrapper>
       <div className="course-details-item">
         <div className="content-wrapper">
-          <ReactPlayer
+          <ReactHlsPlayer
             url={course.meta.courseVideoPreview.link}
             type="application/x-mpegURL"
             controls
@@ -95,8 +95,8 @@ const CourseDetails = () => {
       <div className="course-details-item">
         <div className="grid-item content-wrapper">
           {isUnlockedLesson ? (
-            <ReactPlayer
-              url={selectedLesson.link}
+            <ReactHlsPlayer
+              url={selectedLesson.link + ".webp"}
               type="application/x-mpegURL"
               controls
             />

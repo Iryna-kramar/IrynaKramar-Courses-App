@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 
 const CoursesContext = React.createContext();
 
@@ -15,9 +14,8 @@ const CoursesProvider = ({ children }) => {
 
   const host = "http://api.wisey.app";
   const version = "api/v1";
-
-  let baseUrl = `${host}/${version}/core/preview-courses`;
-  let tokenUrl = `${host}/${version}/auth/anonymous?platform=subscriptions`;
+  const baseUrl = `${host}/${version}/core/preview-courses`;
+  const tokenUrl = `${host}/${version}/auth/anonymous?platform=subscriptions`;
 
   const fetchData = async (url, options) => {
     const response = await fetch(url, options);

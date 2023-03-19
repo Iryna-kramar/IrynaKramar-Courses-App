@@ -18,6 +18,7 @@ const Courses = () => {
 
   useEffect(() => {
     fetchTokensData();
+
   }, []);
 
   useEffect(() => {

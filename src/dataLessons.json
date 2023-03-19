@@ -1,0 +1,122 @@
+{
+  "id": "58a1a586-51d1-4a74-a30b-bddd095af398",
+  "title": "Learn & Grow. Relationships",
+  "tags": ["communication"],
+  "launchDate": "2022-12-19T14:44:27.000Z",
+  "status": "launched",
+  "description": "Learn how to fix or improve your relationships with loved ones, friends, coworkers, and just anybody.",
+  "duration": 4523,
+  "previewImageLink": "https://wisey.app/assets/images/web/course-covers/learn-and-grow-relationships",
+  "rating": 5,
+  "meta": {
+    "slug": "learn-and-grow-relationships",
+    "skills": ["improving relationships"],
+    "courseVideoPreview": {
+      "link": "https://wisey.app/videos/learn-and-grow-relationships/preview/AppleHLS1/preview.m3u8",
+      "duration": 31,
+      "previewImageLink": "https://wisey.app/assets/images/web/course-covers/learn-and-grow-relationships/preview"
+    }
+  },
+  "lessons": [
+    {
+      "id": "8763437d-9f09-440d-884c-1b7af9c94296",
+      "title": "Behaviors that make people dislike you",
+      "duration": 469,
+      "order": 1,
+      "type": "video",
+      "status": "unlocked",
+      "link": "https://wisey.app/videos/learn-and-grow-relationships/lesson-1/AppleHLS1/lesson-1.m3u8",
+      "previewImageLink": "https://wisey.app/assets/images/web/lessons-covers/learn-and-grow-relationships/lesson-1",
+      "meta": null
+    },
+    {
+      "id": "631d8a49-e5eb-4155-8303-82217cc9f536",
+      "title": "How to win any argument every time",
+      "duration": 504,
+      "order": 2,
+      "type": "video",
+      "status": "locked",
+      "link": "https://wisey.app/videos/learn-and-grow-relationships/lesson-2/AppleHLS1/lesson-2.m3u8",
+      "previewImageLink": "https://wisey.app/assets/images/web/lessons-covers/learn-and-grow-relationships/lesson-2",
+      "meta": null
+    },
+    {
+      "id": "71742b9d-e4f4-4c32-89bb-a257e58ca096",
+      "title": "How to say NO",
+      "duration": 503,
+      "order": 3,
+      "type": "video",
+      "status": "unlocked",
+      "link": "https://wisey.app/videos/learn-and-grow-relationships/lesson-3/AppleHLS1/lesson-3.m3u8",
+      "previewImageLink": "https://wisey.app/assets/images/web/lessons-covers/learn-and-grow-relationships/lesson-3",
+      "meta": null
+    },
+    {
+      "id": "6d8c61ab-b72e-432d-82f8-810aa867c586",
+      "title": "How to heal and start trusting people",
+      "duration": 487,
+      "order": 4,
+      "type": "video",
+      "status": "unlocked",
+      "link": "https://wisey.app/videos/learn-and-grow-relationships/lesson-4/AppleHLS1/lesson-4.m3u8",
+      "previewImageLink": "https://wisey.app/assets/images/web/lessons-covers/learn-and-grow-relationships/lesson-4",
+      "meta": null
+    },
+    {
+      "id": "b8006b20-27d1-49ce-8cad-4b559985b488",
+      "title": "Why even the strongest relationships fail",
+      "duration": 506,
+      "order": 5,
+      "type": "video",
+      "status": "unlocked",
+      "link": "https://wisey.app/videos/learn-and-grow-relationships/lesson-5/AppleHLS1/lesson-5.m3u8",
+      "previewImageLink": "https://wisey.app/assets/images/web/lessons-covers/learn-and-grow-relationships/lesson-5",
+      "meta": null
+    },
+    {
+      "id": "63550f17-cd38-43f0-b3c3-34e865303f24",
+      "title": "How to tell if your partner is hiding something",
+      "duration": 509,
+      "order": 6,
+      "type": "video",
+      "status": "unlocked",
+      "link": "https://wisey.app/videos/learn-and-grow-relationships/lesson-6/AppleHLS1/lesson-6.m3u8",
+      "previewImageLink": "https://wisey.app/assets/images/web/lessons-covers/learn-and-grow-relationships/lesson-6",
+      "meta": null
+    },
+    {
+      "id": "6b157da4-4927-4769-975f-22495cfd7918",
+      "title": "How to stop thinking about your ex",
+      "duration": 467,
+      "order": 7,
+      "type": "video",
+      "status": "unlocked",
+      "link": "https://wisey.app/videos/learn-and-grow-relationships/lesson-7/AppleHLS1/lesson-7.m3u8",
+      "previewImageLink": "https://wisey.app/assets/images/web/lessons-covers/learn-and-grow-relationships/lesson-7",
+      "meta": null
+    },
+    {
+      "id": "18303d91-c7bd-444b-9d9e-c1e0185be6ab",
+      "title": "Psychological tricks for easier communication",
+      "duration": 537,
+      "order": 8,
+      "type": "video",
+      "status": "locked",
+      "link": "https://wisey.app/videos/learn-and-grow-relationships/lesson-8/AppleHLS1/lesson-8.m3u8",
+      "previewImageLink": "https://wisey.app/assets/images/web/lessons-covers/learn-and-grow-relationships/lesson-8",
+      "meta": null
+    },
+    {
+      "id": "1c8aff5e-0dbc-4e18-a3f0-b1b8937c538a",
+      "title": "How to recognize the signs of abuse",
+      "duration": 541,
+      "order": 9,
+      "type": "video",
+      "status": "unlocked",
+      "link": "https://wisey.app/videos/learn-and-grow-relationships/lesson-9/AppleHLS1/lesson-9.m3u8",
+      "previewImageLink": "https://wisey.app/assets/images/web/lessons-covers/learn-and-grow-relationships/lesson-9",
+      "meta": null
+    }
+  ],
+  "containsLockedLessons": false
+}
